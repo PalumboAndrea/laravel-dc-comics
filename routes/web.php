@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Guest\PageController as PageController;
+use App\Models\Comic;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +15,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+Route::get('/admin', [PageController::class, 'index'])->name('admin.index');
+Route::get('/admin/{id}', [PageController::class, 'show'])->name('admin.show');
