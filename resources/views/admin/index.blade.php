@@ -18,6 +18,14 @@
 <body>
 
     <h1 class="m-4">Comics:</h1>
+    <div class="container">
+        <div class="row my-2">
+            <div class="col-12 d-flex">
+                <a class="btn btn-primary ms-auto" href=" {{ route('admin.create') }} ">Create new product</a>
+            </div>
+        </div>
+    </div>
+    
     <table class="table table-dark table-hover">
         <thead>
             <tr>
@@ -34,7 +42,7 @@
         </thead>
         <tbody>
             @foreach ($comics as $comic)
-            <tr>
+            <tr> 
                 <th scope="row">{{ $comic->id }} </th>
                 <td>{{ $comic->title }}</td>
                 <td>{{ $comic->description }}</td>
