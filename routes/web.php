@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Guest\PageController as PageController;
+use App\Http\Controllers\guest\GuestController as GuestController;
+use App\Http\Controllers\admin\AdminController as AdminController;
 use App\Models\Comic;
 
 /*
@@ -21,4 +22,5 @@ Route::get('/admin/create', [PageController::class, 'create'])->name('admin.crea
 Route::get('/admin/{id}', [PageController::class, 'show'])->name('admin.show');
 */
 
-Route::resource('admin', PageController::class);
+Route::resource('admin', AdminController::class);
+Route::resource('guest', GuestController::class);
