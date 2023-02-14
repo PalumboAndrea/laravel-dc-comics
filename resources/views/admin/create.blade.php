@@ -21,7 +21,7 @@
             Crealo tu!
         </h1>
         <div class="container">
-            <form action=" {{ route('admin.store') }} " method="POST">
+            <form action=" {{ route('admin.admin.store') }} " method="POST">
                 @csrf
                 <div class="mb-3">
                     <label class="form-label">title</label>

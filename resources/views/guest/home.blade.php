@@ -12,20 +12,21 @@
 
     <!-- Styles -->
     @vite('resources/js/app.js')
+    <link rel="stylesheet" href="../../scss/home.scss">
     
 </head>
 
-<body>
+<body id="guest-home-body">
 
     <h1 class="m-4">Comics:</h1>
     <div class="container">
         <div class="row">
             @foreach($comics as $comic)
             <div class="col-3 text-center">
-                <h1>
+                <h2>
                     {{ $comic->title }} 
-                </h1>
-                <img src="{{ $comic->thumb }}" alt="{{ $comic->title }}">
+                </h2>
+                <img src="{{ $comic->thumb }}" alt="{{ $comic->title }}" class="home-img">
                 <p>
                     {{ $comic->price }} &euro;
                 </p>

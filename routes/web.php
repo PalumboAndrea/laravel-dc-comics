@@ -22,5 +22,12 @@ Route::get('/admin/create', [PageController::class, 'create'])->name('admin.crea
 Route::get('/admin/{id}', [PageController::class, 'show'])->name('admin.show');
 */
 
-Route::resource('admin', AdminController::class);
-Route::resource('guest', GuestController::class);
+Route::prefix('admin')->name('admin.')->group(function(){
+    Route::resource('admin', AdminController::class);
+});
+
+Route::prefix('guest')->group(function(){
+    Route::resource('guest', GuestController::class);
+});
+
+

@@ -21,7 +21,7 @@
     <div class="container">
         <div class="row my-2">
             <div class="col-12 d-flex">
-                <a class="btn btn-primary ms-auto" href=" {{ route('admin.create') }} ">Create new product</a>
+                <a class="btn btn-primary ms-auto" href=" {{ route('admin.admin.create') }} ">Create new product</a>
             </div>
         </div>
     </div>
@@ -53,7 +53,7 @@
                     <td>{{ $comic->sale_date }}</td>
                     <td>{{ $comic->type }}</td>
                     <td class="d-flex justify-content-between">
-                        <a class="btn btn-primary m-1" href="{{ route('admin.show', $comic->id) }}">Show</a>
+                        <a class="btn btn-primary m-1" href="{{ route('admin.admin.show', $comic->id) }}">Show</a>
                         <a class="btn btn-warning m-1">Edit</a>
                         <a class="btn btn-danger m-1">Delete</a>
                     </td>
