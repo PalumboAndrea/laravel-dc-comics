@@ -23,11 +23,11 @@ Route::get('/admin/{id}', [PageController::class, 'show'])->name('admin.show');
 */
 
 Route::prefix('admin')->name('admin.')->group(function(){
-    Route::resource('admin', AdminController::class);
+    Route::resource('comics', AdminController::class);
 });
 
 Route::prefix('guest')->group(function(){
-    Route::resource('guest', GuestController::class);
+    Route::resource('comics', GuestController::class);
 });
 
 

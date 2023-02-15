@@ -17,9 +17,20 @@
 
     <body>
 
-        <h1 class="m-4">
-            Comics:
-        </h1>
+        <div class="container">
+            <div class="row d-flex align-items-center justify-content-between">
+                <div class="col-6">
+                    <h1 class="m-4">
+                        Comic:
+                    </h1>
+                </div>
+                <div class="col-3">
+                    <a class="btn btn-primary" href=" {{ route('admin.comics.index') }} ">
+                        Torna alla home
+                    </a>
+                </div>
+            </div>
+        </div>
             <div class="container text-center">
                 <div class="row">
                     <div class="col-12 text-center">

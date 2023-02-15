@@ -77,7 +77,11 @@ class AdminController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $formData = $request->all();
+        $comic = Comic::findOrFail($id);
+        $comic->update($formData);
+
+        return redirect()->route('admin.comics.show', $comic->id);
     }
 
     /**
