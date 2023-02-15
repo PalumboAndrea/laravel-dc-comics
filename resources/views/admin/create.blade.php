@@ -1,63 +1,18 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+@extends('layouts.app')
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+@section('main-content')
 
-    <title>laravel-dc-comics</title>
-
-    <!-- Fonts -->
-    <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-
-    <!-- Styles -->
-    @vite('resources/js/app.js')
-
-</head>
-
-    <body>
-
-        <h1 class="m-4">
-            Crealo tu!
-        </h1>
-        <div class="container">
-            <form action=" {{ route('admin.comics.store') }} " method="POST">
-                @csrf
-                <div class="mb-3">
-                    <label class="form-label">title</label>
-                    <input type="text" class="form-control" placeholder="add title" name="title">
-                </div>
-                <div class="mb-3">
-                    <label class="form-label">description</label>
-                    <textarea class="form-control" placeholder="Leave a comment here" name="description"></textarea>
-                </div>
-                <div class="mb-3">
-                    <label class="form-label">thumb</label>
-                    <input type="text" class="form-control" placeholder="add thumb" name="thumb">
-                </div>
-                <div class="mb-3">
-                    <label class="form-label">price</label>
-                    <input type="text" class="form-control" placeholder="add price" name="price">
-                </div>
-                <div class="mb-3">
-                    <label class="form-label">series</label>
-                    <input type="text" class="form-control" placeholder="add series" name="series">
-                </div>
-                <div class="mb-3">
-                    <label class="form-label">sale_date</label>
-                    <input type="text" class="form-control" placeholder="add sale_date" name="sale_date">
-                </div>
-                <div class="mb-3">
-                    <label class="form-label">type</label>
-                    <input type="text" class="form-control" placeholder="add type" name="type">
-                </div>
-                
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
+    <div class="container my-4">
+        <div class="row d-flex align-items-center justify-content-between">
+            <div class="col-10">
+                <h1 class="m-0">
+                    Crea un nuovo elemento!
+                </h1>
+            </div>
+            @include('partials.backHome')
         </div>
+    </div>
+   
+    @include('partials.form', ['route' => 'admin.comics.store', 'method' => 'POST', 'product' => $comic])
         
-        
-        
-    </body>
-
-</html>
+@endsection

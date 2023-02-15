@@ -1,26 +1,15 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+@extends('layouts.app')
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>laravel-dc-comics</title>
-
-    <!-- Fonts -->
-    <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-
-    <!-- Styles -->
-    @vite('resources/js/app.js')
-
-</head>
-
-<body>
-
-    <h1 class="m-4">Comics:</h1>
+@section('main-content')
+    
     <div class="container">
-        <div class="row my-2">
-            <div class="col-12 d-flex">
+        <div class="row my-2 d-flex align-items-center justify-content-between">
+            <div class="col-10">
+                <h1 class="my-4">
+                    Comics:
+                </h1>
+            </div>
+            <div class="col">
                 <a class="btn btn-primary ms-auto" href=" {{ route('admin.comics.create') }} ">Create new product</a>
             </div>
         </div>
@@ -52,10 +41,16 @@
                     <td>{{ $comic->series }}</td>
                     <td>{{ $comic->sale_date }}</td>
                     <td>{{ $comic->type }}</td>
-                    <td class="d-flex justify-content-between">
+                    <td class="d-flex">
                         <a class="btn btn-primary m-1" href="{{ route('admin.comics.show', $comic->id) }}">Show</a>
                         <a class="btn btn-warning m-1" href="{{ route('admin.comics.edit', $comic->id) }}">Edit</a>
-                        <a class="btn btn-danger m-1">Delete</a>
+                        <form action=" {{ route('admin.comics.destroy', $comic->id) }} " method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button class="btn btn-danger m-1">
+                                Delete
+                            </button>
+                        </form>
                     </td>
                 </tr>
                 @endforeach
@@ -63,7 +58,6 @@
         </table>
     </div>
     
+@endsection
 
-</body>
 
-</html>

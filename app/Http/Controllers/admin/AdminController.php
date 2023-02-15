@@ -26,7 +26,7 @@ class AdminController extends Controller
      */
     public function create()
     {
-        return view('admin.create');
+        return view('admin.create', [ 'comic' => new Comic() ]);
     }
 
     /**
@@ -87,11 +87,13 @@ class AdminController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  Comic $comic
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Comic $comic)
     {
-        //
+        $comic->delete();
+        return redirect()->route('admin.comics.index');
+
     }
 }
