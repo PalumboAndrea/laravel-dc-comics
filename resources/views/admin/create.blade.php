@@ -13,6 +13,6 @@
         </div>
     </div>
    
-    @include('partials.form', ['route' => 'admin.comics.store', 'method' => 'POST', 'product' => $comic])
+    @include('partials.form', ['route' => 'admin.comics.store', 'method' => 'POST', 'comic' => $comic])
         
 @endsection

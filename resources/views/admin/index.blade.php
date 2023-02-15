@@ -44,7 +44,7 @@
                     <td class="d-flex">
                         <a class="btn btn-primary m-1" href="{{ route('admin.comics.show', $comic->id) }}">Show</a>
                         <a class="btn btn-warning m-1" href="{{ route('admin.comics.edit', $comic->id) }}">Edit</a>
-                        <form action=" {{ route('admin.comics.destroy', $comic->id) }} " method="POST">
+                        <form action=" {{ route('admin.comics.destroy', $comic->id) }} " method="POST" class="form-deleter" data-element-name="{{ $comic->title }}">
                             @csrf
                             @method('DELETE')
                             <button class="btn btn-danger m-1">
@@ -58,6 +58,12 @@
         </table>
     </div>
     
+@endsection
+
+@section('script')
+
+    @vite('resources/js/deleteForm.js')
+
 @endsection
 
 

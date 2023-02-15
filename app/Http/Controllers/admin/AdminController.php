@@ -42,7 +42,7 @@ class AdminController extends Controller
         $newComic->fill($comic);
         $newComic->save();
 
-        return redirect()->route('admin.show', $newComic->id);
+        return redirect()->route('admin.comics.show', $newComic->id);
     }
 
     /**
@@ -94,6 +94,5 @@ class AdminController extends Controller
     {
         $comic->delete();
         return redirect()->route('admin.comics.index');
-
     }
 }
