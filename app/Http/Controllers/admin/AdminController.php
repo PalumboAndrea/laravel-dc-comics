@@ -37,7 +37,28 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
-        $comic = ($request->all());
+        
+        // to validate the datas
+        $comic = $request->validate([
+            'title'=>'required',
+            'description'=>'required',
+            'thumb'=>'required',
+            'price'=>'required',
+            'series'=>'required',
+            'sale_date'=>'required',
+            'type'=>'required',
+        ],
+        [
+            'title.required' => 'Per favore inserire un titolo',
+            'description.required' => 'Per favore inserire una descrizione',
+            'thumb.required' => 'Per favore inserire un link ad una foto',
+            'price.required' => 'Per favore inserire un prezzo',
+            'series.required' => 'Per favore inserire un nome di una serie di fumetti',
+            'sale_date.required' => 'Per favore inserire una data di uscita',
+            'type.required' => 'Per favore inserire un tipo',
+        ]);
+
+
         $newComic = new Comic();
         $newComic->fill($comic);
         $newComic->save();
@@ -77,8 +98,28 @@ class AdminController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $formData = $request->all();
+
         $comic = Comic::findOrFail($id);
+
+        $formData = $request->validate([
+            'title'=>'required',
+            'description'=>'required',
+            'thumb'=>'required',
+            'price'=>'required',
+            'series'=>'required',
+            'sale_date'=>'required',
+            'type'=>'required',
+        ],
+        [
+            'title.required' => 'Per favore inserire un titolo',
+            'description.required' => 'Per favore inserire una descrizione',
+            'thumb.required' => 'Per favore inserire un link ad una foto',
+            'price.required' => 'Per favore inserire un prezzo',
+            'series.required' => 'Per favore inserire un nome di una serie di fumetti',
+            'sale_date.required' => 'Per favore inserire una data di uscita',
+            'type.required' => 'Per favore inserire un tipo',
+        ]);
+
         $comic->update($formData);
 
         return redirect()->route('admin.comics.show', $comic->id);

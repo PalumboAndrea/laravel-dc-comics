@@ -11,6 +11,15 @@
             </div>
             @include('partials.backHome')
         </div>
+        @if ($errors->any())
+            <div class="alert alert-danger mt-4">
+                <ul class="m-0">
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
     </div>
     
     @include('partials.form', ['route' => 'admin.comics.update', 'method' => 'PUT', 'product' => $comic])
